@@ -1,0 +1,20 @@
+.gtid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: cursive;
+    .card{
+        width: 450px;
+        border-radius: 20px;
+        height: 500px;
+        text-align: center;
+        border: 1px solid gray;
+    }
+    img{
+        width: 100%;
+        height: 220px;
+    }
+    p{
+        width: 400px;
+    }
+}

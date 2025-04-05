@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {User} from "./usersType"
+import { fetchUsers } from "./usersThunk";
 
 interface UserState {
     list: User[];
@@ -19,17 +20,19 @@ const usersSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-           .addCase("users/fetchUsers/pending", (state) => {
+           .addCase(fetchUsers.pending, (state) => {
                 state.loading = true;
                 state.error = null;
             })
-           .addCase("users/fetchUsers/fulfilled", (state, action) => {
+           .addCase(fetchUsers.fulfilled, (state, action) => {
                 state.loading = false;
                 state.list = action.payload;
             })
-           .addCase("users/fetchUsers/rejected", (state, action) => {
+            .addCase(fetchUsers.rejected, (state, action) => {
                 state.loading = false;
-                state.error = action.payload;
+                state.error = action.error.message ?? "Unknown error";
             });
     }
 });
+
+export default usersSlice.reducer;

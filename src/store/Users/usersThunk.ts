@@ -11,9 +11,7 @@ export const fetchUsers = createAsyncThunk<User[], void>(
       const response = await axios.get<User[]>(API);
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(
-        error instanceof Error ? error.message : "Неизвестная ошибка"
-      );
+      return thunkAPI.rejectWithValue("Error");
     }
   }
 );

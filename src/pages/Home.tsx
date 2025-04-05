@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from "../components/Card/Card.tsx";
+import Service from './Service.tsx';
 
 let products = [
   {
